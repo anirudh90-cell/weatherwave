@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Checker</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="weather-headings">
+        <div class="main-page-heading">
+            <h1 class="weatherbeats">Weather<span class="beats">Wave</span></h1>
+            <i class="fas fa-sun" id="weather-icon"></i>
+        </div>
+        <div class="profile-logout">
+            <div class="profile-section">
+                <a href="/quiz" id="quiz-link">
+                    <p id="quiz">Q</p>
+                    <p id="quiz-label">Quiz</p>
+                </a>
+            </div>
+           
+            <div class="profile-section">
+                <a href="#" onclick="confirmLogout()" id="logout-link">
+                    <i class="fas fa-sign-out-alt" id="logout-icon"></i>
+                    <p id="logout-label">Logout</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="weathers-header">
+        <div class="weather-checker">
+            <h1 id="h1-weather">Current Weather</h1>
+            <div id="weather">Fetching weather data... </div>
+        </div>
+        <div class="image-weather">
+            <img src="https://cdn-icons-png.flaticon.com/512/3721/3721962.png" id="weather-image">
+        </div>
+    </div>
+    <div class="weather-check">
+        <h1 id="h1-weather-check-map">Check the Weather and Get the Location.</h1>
+        <input type="text" id="city-weather" placeholder="Enter city name">
+        <button id="getWeather-map">Get Weather</button>
+        <div id="weather-map"></div>
+        <button id="narrateWeather-map">Narrate Weather</button>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+   
+    <div class="facts-quiz-container">
+        <div class="facts">
+            <h1 style="text-align: left;">Learn Daily 7 Facts about Weather</h1>
+            <div class="trivia-container">
+                <h2 >Weather Trivia and Fun Facts</h2>
+                <p id="trivia-fact">Read the weather facts daily to increase knowledege <br>Click the button to learn a fun weather fact!</p>
+                <button onclick="showTrivia()">Get a Fun Fact</button>
+            </div>
+        </div>
+    
+        <div class="facts">
+            <h1 style="text-align: left;">Test Your Weather Knowledge!</h1>
+            <div class="quiz-description">
+                <p>Think you know a lot about weather? Take this quiz to test your knowledge and learn even more interesting facts about the weather.</p>
+                <p>Click the button below to start the quiz.</p>
+                <button><a href="/quiz" id="main_quiz">Play Now</a>   <i class="fas fa-play"></i>  </button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="event">
+       <p> "Plan your events with confidence, as our weather insights ensure every occasion is perfectly timed to the forecast."</p>
+        <div id="event-planning">
+            <h2>Plan Your Event</h2>
+            <label for="location" id="label">Location:</label>
+            <input type="text" id="location" placeholder="Enter city name">
+            
+            <label for="date" id="label">Date:</label>
+            <input type="date" id="date">
+    <div class="button-center">
+            <button id="check-weather">Check Weather</button>
+    </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text"><span>Weather</span>Wave</h2>
+                <p class="footer-para">
+                    At WeatherWave, we’re committed to providing you with accurate and timely weather updates, so you can plan your day with confidence. Trust us to be your daily weather companion.
+                </p>
+                <div class="contact">
+                    <span class="span-footer"><i class="fas fa-phone"></i> &nbsp; +123-456-7890</span>
+                    <span class="span-footer"><i class="fas fa-envelope"></i> &nbsp; support@weatherwave.com</span>
+                </div>
+                <div class="socials"> 
+                    <a href="https://www.facebook.com/profile.php?id=100089743424538&mibextid=ZbWKwL" target="blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/AnirudhSha53032" target="blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/anirudh_sharma_official/" target="blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/anirudh-sharma-3102991a5/" target="blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/about"><li>About</li></a>
+                    <a href="/contact"><li>Contact</li></a>
+                    <a href="/privacy" id="privacy"><li>Privacy Policy</li></a>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-section subscribe">
+                <h2>Newsletter</h2>
+                <br>
+                <p>
+                    Stay updated with the Weather News and Weather insights by subscribing to our newsletter.
+                </p>
+                <form>
+                    <input type="email" name="email" class="contact-input" placeholder="Your email address...">
+                    
+                    <br>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; weatherWave.com | All rights reserved!
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script>
+         function confirmLogout() {
+            var confirmation = confirm("Are you sure you want to log out?");
+            if (confirmation) {
+                window.location.href = "/logout";  
+            }
+        }
+    </script>
+ 
+
+</body>
+</html>

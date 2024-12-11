@@ -1,0 +1,174 @@
+<!DOCTYPE > 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+</head>
+<style>
+    .form-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body>
+    <!-- Login Form -->
+    <form action="/login" method="POST" class="form_register" id="form_login">
+        <div class="heading-for-choice">
+            <a href="#" class="tab-buttons active" id="loginTab" onclick="showForm('login')">Login</a> |
+            <a href="#" class="tab-buttons" id="signUpTab" onclick="showForm('signUp')">Sign Up</a>
+        </div>
+        <div class="form-container">
+            <div class="login-form" id="loginForm">
+                <div class="images">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQcWnN7yyc20XCi2bVOTGNvc9j3UtWLQpcWQ&s" id="image-music-login">
+                    <p class="lines">"Ride the ever-changing waves of weather with WeatherWave."</p>
+                </div>
+                <fieldset class="fieldset-2">
+                    <i class="fas fa-user login-icon" id="usericon"></i>
+                    <h2 id="login-text">LOGIN</h2>
+                    <div class="form-group">
+                        <i class="fas fa-envelope email-2-icon"></i>
+                        <p id="email-2">Email:</p>
+                        <input type="email" placeholder="E-mail" name="logemail" class="input-2" required/>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock password-2-icon"></i>
+                        <p id="password-2">Password:</p>
+                        <input type="password" placeholder="**********" name="logpassword" class="input-2" required/>
+                    </div>
+                    <div class="button-2">
+                        <button id="button-2">Login</button>
+                    </div>
+                    <div class="para-2">Don't have an account? <a href="#" onclick="showForm('signUp')">Register Now.</a></div>
+                </fieldset>
+            </div>
+        </div>
+    </form>
+
+    <!-- Registration Form -->
+    <form action="/registration" method="POST" id="form_register" class="form_register">
+        <div class="signUp-form" id="signUpForm">
+            <fieldset class="fieldset">
+                <legend>
+                    <h1 id="heading">REGISTRATION</h1>
+                </legend>
+                
+                <div class="field">
+                    <label class="label">First Name: </label>
+                    <input type="text" placeholder="First name" name="fname"  class="input" required/>
+                    <label class="label">Last Name: </label>
+                    <input type="text" placeholder="Last Name" name="lname" class="input"  required/>
+                    <label class="label">Contact No: </label>
+                    <input type="number" placeholder="***** 90876" minlength="10" name="contact" class="input"  required/>
+                    <label class="label">Email: </label>
+                    <input type="email" placeholder="Email Address" name="email" id="email" class="input" required/>
+                    <span id="emailError" style="color: red; display: none;">Please enter a valid email address.</span>
+                    <label class="label">Password: </label>
+                    <input type="password" placeholder="**********" name="password" id="password" class="input"  required/>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('password', this)"></i>
+                    <span id="passwordError" style="color: red; display: none;">Password must contain at least one uppercase letter, one number, and one special character.</span>
+                    <label class="label">Confirm Password: </label>
+                    <input type="password" placeholder="**********" name="confirmPassword" id="confirmPassword" class="input"  required/>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('confirmPassword', this)"></i>
+                    <span id="confirmPasswordError" style="color: red; display: none;">Passwords do not match.</span>
+                </div>
+                <div class="register">
+                    <button type="submit" id="register" onclick="error_register()">Register</button>
+                </div>
+                <div class="para-2">Already have an account? <a href="#" onclick="showForm('login')">Login</a></div>
+            </fieldset>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+    const registrationForm = document.getElementById('form_register');
+    const loginForm = document.getElementById('form_login');
+
+
+    function showPopup(message, isSuccess) {
+        const popup = document.createElement('div');
+        popup.textContent = message;
+        popup.style.position = 'fixed';
+        popup.style.top = '20px';
+        popup.style.right = '20px';
+        popup.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
+        popup.style.color = '#fff';
+        popup.style.padding = '15px';
+        popup.style.borderRadius = '5px';
+        popup.style.zIndex = '1000';
+        popup.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.2)';
+        document.body.appendChild(popup);
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    }
+
+
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(registrationForm);
+
+            fetch('/registration', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showPopup(data.message, data.success);
+                    if (data.success) {
+                        registrationForm.reset();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showPopup('An error occurred. Please try again.', false);
+                });
+        });
+    }
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(loginForm);
+
+            fetch('/login', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showPopup(data.message, data.success);
+                    if (data.success) {
+                        window.location.href = '/main_page'; 
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Unknown error occure')
+                });
+        });
+    }
+});
+
+
+
+link.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+        window.location.href = link.href;
+    }, 500); 
+});
+    </script>
+</body>
+</html>

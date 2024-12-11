@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherBeats</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="headings-header">
+        <div class="Weather-beats">
+            <h1 id="h1-1">WeatherWave</h1>
+        </div>
+        <div id="menu-toggle" class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div id="navbar" class="headers">
+            <div id="close-icon" class="close-icon">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="/abouts" class="about">About</a>
+            <a href="/contacts" class="Contact" id="contactus">Contact us</a>
+            <a href="/registration" class="login-signup">Login/SignUp</a>
+            <a href="https://www.instagram.com/anirudh_sharma_official/" target="main" class="icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100089743424538&mibextid=ZbWKwL" target="main" class="icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/AnirudhSha53032" class="icon" target="main"> <i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="image-header">
+            <img src="/static/images/hero-bg.png" id="image-header" alt="Header Image">
+        </div>
+        <div class="contents-with-image">
+            <div class="content-header">
+                <p class="para-content-1">"Stay ahead with real-time updates and trends, ensuring you're always in sync with nature's rhythm."</p>
+            </div>
+            <div class="image-content-1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrqWOTEEr7z2NcT4LrKHSUnrfjUTE6-QWj7Q&s" id="image-content-header" alt="Content Image">
+            </div>
+        </div>
+    </header>
+
+    <div class="weather-background">
+
+        <div class="weather-content">
+            <h1>Join to WeatherWave</h1>
+            <p>Experience the weather like never before. Your personal weather companion—explore forecasts, take quizzes, and learn fascinating weather facts, all in one place.</p>
+            <button class="btn-join"><a href="/registration" id="btn_link_join">Join Now</a></button>
+        </div>
+    </div>
+    
+    <img src="/static/images/asset 7.svg" id="black-background">
+    <section class="blog-news-section">
+        <h2 id="h2-section">Latest News & Articles</h2>
+        <div class="blog-news-container">
+            <div class="blog-post">
+                <h3 class="h3-section">The Science Behind Weather Patterns</h3>
+                <p class="date">July 31, 2024</p>
+                <p class="description">Explore the fascinating science that drives weather patterns. From the formation of clouds to the impact of ocean currents, uncover the forces shaping our daily weather.</p>
+            </div>
+            <div class="blog-post">
+                <h3 class="h3-section">How Climate Change is Altering Weather Forecasts</h3>
+                <p class="date">July 25, 2024</p>
+                <p class="description">Learn how climate change is affecting weather forecasts around the globe. This article delves into the challenges meteorologists face in predicting weather in an era of rapid environmental change.</p>
+            </div>
+            <div class="blog-post">
+                <h3 class="h3-section">Weather Emergency Kit Essentials</h3>
+                <p class="date">July 20, 2024</p>
+                <p class="description">In unpredictable weather, having an emergency kit is crucial. Find out what essentials you should include to stay prepared for any weather emergency.</p>
+            </div>
+        </div>
+    </section>
+    <div class="quiz-section" >
+        <h2 >Test Your Weather Knowledge!</h2>
+        <p>
+            Think you know everything about the weather? Challenge yourself with our interactive weather quiz! 
+            From forecasting facts to climate curiosities, find out how much you really know.
+        </p>
+        <a href="/registration">
+            Play Quiz
+        </a>
+    </div>
+    
+    <div class="contact-div">
+        <h1 class="h1-contact-div">SUGGESTION</h1>
+        <div class="contact-image">
+            <img src="https://static.vecteezy.com/system/resources/previews/015/876/346/original/weather-icon-in-flat-style-sun-cloud-and-rain-illustration-on-white-isolated-background-meteorology-sign-business-concept-vector.jpg" id="contact-image">
+            <h3 class="h3-contact-image">"We value your input! Share your thoughts and ideas to help us improve WeatherWave and make it even more user-friendly and informative."</h3>
+        </div>
+    <div class="contact-container">
+        <h2 class="h2-contact">Suggestion</h2>
+        <form class="contact-form" id="myForm" method="post">
+            <div class="form-group">
+                <label for="name" class="label1">Name:</label>
+                <input type="text" id="name" name="name" class="input1"  placeholder="Type your name....." required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="label1">Email:</label>
+                <input type="email" id="email" name="email" class="input1" placeholder="abcd1234@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile" class="label1">Mobile No:</label>
+                <input type="tel" id="mobile" name="mobile" class="input1" pattern="[0-9]{10}" placeholder="88988 *****" required>
+            </div>
+            <div class="form-group">
+                <label for="message" class="label1">Message:</label>
+                <textarea id="message" name="message" rows="4" class="textarea1" placeholder="Type Something......." required></textarea>
+            </div>
+            <button type="submit" class="button" onclick="SubForm(event)">Send</button>
+        </form>
+    </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text"><span>Weather</span>Wave</h2>
+                <p class="footer-para">
+                    At WeatherWave, we’re committed to providing you with accurate and timely weather updates, so you can plan your day with confidence. Trust us to be your daily weather companion.
+                </p>
+                <div class="contact">
+                    <span class="span-footer"><i class="fas fa-phone"></i> &nbsp; +123-456-7890</span>
+                    <span class="span-footer"><i class="fas fa-envelope"></i> &nbsp; support@weatherwave.com</span>
+                </div>
+                <div class="socials">
+                    <a href="https://www.facebook.com/profile.php?id=100089743424538&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/AnirudhSha53032"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/anirudh_sharma_official/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/anirudh-sharma-3102991a5/"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <a href="/abouts"><li>About</li></a>
+                    <a href="/contacts"><li>Contact</li></a>
+                    <a href="/privacys" id="privacy"><li>Privacy Policy</li></a>
+                    <a href="/term" id="service"><li>Terms of Service</li></a>
+                </ul>
+            </div>
+
+            <div class="footer-section subscribe">
+                <h2>Newsletter</h2>
+                <br>
+                <p>
+                    Stay updated with the Weather News and Weather insights by subscribing to our newsletter.
+                </p>
+                <form>
+                    <input type="email" name="email" class="contact-input" placeholder="Your email address...">
+                    
+                    <br>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-envelope"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; weatherWave.com | All rights reserved!
+        </div>
+    </footer>
+    <script src="script.js"></script>
+ <script src="/static/js/script.js"></script>
+
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+</body>
+</html>

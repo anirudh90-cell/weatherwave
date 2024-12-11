@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Services - Weather Wave</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="terms-container">
+        <header class="terms-header">
+            <h1>Terms and Services</h1>
+            <p>Effective Date: December 5, 2024 | Last Updated: December 5, 2024</p>
+        </header>
+        <section class="terms-section">
+            <h2 class="terms-title">1. Acceptance of Terms</h2>
+            <p>
+                By accessing or using the Weather Wave website, you agree to comply with and be bound by these terms of service. If you do not agree to these terms, please do not use our website.
+            </p>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">2. Use of the Website</h2>
+            <p>
+                Weather Wave provides weather-related information, forecasts, and other related services. You agree to use this information responsibly and not for unlawful or malicious purposes.
+            </p>
+            <ul class="terms-list">
+                <li>You must be at least 13 years old to use the website.</li>
+                <li>You agree not to misuse the website or its services.</li>
+                <li>Weather data is subject to availability and accuracy of third-party APIs.</li>
+            </ul>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">3. Intellectual Property</h2>
+            <p>
+                All content on the Weather Wave website, including text, images, logos, and graphics, is protected by copyright laws. Unauthorized reproduction or distribution of this content is prohibited.
+            </p>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">4. Limitation of Liability</h2>
+            <p>
+                Weather Wave does not guarantee the accuracy or reliability of the weather information provided. We are not liable for any damages resulting from the use of our website or services.
+            </p>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">5. Changes to Terms</h2>
+            <p>
+                We reserve the right to modify these terms at any time. Users will be notified of significant changes. Your continued use of the website constitutes acceptance of the updated terms.
+            </p>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">6. Termination</h2>
+            <p>
+                We reserve the right to terminate or suspend access to the website for users who violate these terms or engage in prohibited activities.
+            </p>
+        </section>
+        <section class="terms-section">
+            <h2 class="terms-title">7. Accept Terms</h2>
+            <label>
+                <input type="checkbox" id="acceptTerms"> I agree to the Terms and Conditions.
+            </label>
+        </section>
+        <section class="terms-section">
+            <button type="button" id="submitBtn">Submit</button>
+        </section>
+        <p id="error-msg" style="color: red; display: none;">You must accept the terms and conditions before submitting.</p>
+        <p id="success-msg" style="color: green; display: none;">Thank you for accepting the Terms and Conditions!</p>
+        <footer class="terms-footer">
+            <p>If you have any questions about these terms, please contact us at <a href="mailto:support@weatherwave.com">support@weatherwave.com</a>.</p>
+            <p>© 2024 Weather Wave. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const checkbox = document.getElementById('acceptTerms');
+        const errorMsg = document.getElementById('error-msg');
+        const successMsg = document.getElementById('success-msg');
+
+        submitBtn.addEventListener('click', function() {
+            if (checkbox.checked) {
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+                setTimeout(() => {
+            window.location.href = '/registration';  
+        }, 1000);
+               
+            } else {
+                
+                successMsg.style.display = 'none';
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

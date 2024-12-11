@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css1.css">
+    <link rel="stylesheet" href="/static/css/css1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div id="con">
+            <h1>&#9743; CONTACT US</h1>
+        </div>
+        <div id="add">
+            <p id="address"><h3>Address</h3></p><br>
+            3rd Floor, Ashoka Business Tower,<br>
+Plot No. 47, Sector 15,<br>
+Electronic City Phase 1,<br>
+Bangalore, Karnataka, India - 560100<br>
+            <hr>
+            <div id="num">
+                <p><h3>Contact Number</h3></p><br>
+                 <a href="tel:9826131008">9826131008</a>,<br>
+                <a href="tel:7987635181">7987635181</a>, <a href="tel:9586471258">9586471258</a><br><hr>
+            </div>
+            <div id="gma">
+                <p><h3>Gmail</h3></p><br>
+                <a href="mailto:xyzcompany@gmail.com">xyzcompany@gmail.com</a><br>
+                <a href="mailto:support@gmail.com">support@gmail.com</a><br><hr>
+            </div>
+
+            <div id="query">
+                <h1>Feedback & any query</h1>
+                <br>
+                <form class="f1" id="myQuery">
+                    <fieldset>
+                        <div class="d1">
+                            <label class="q1">Full Name:- </label>
+                            <input type="text" name="Name" placeholder="Name..." required>
+                        </div>
+                        <div class="d1">
+                            <label class="q1">E-mail:- </label>
+                            <input type="email" name="Email" placeholder="abcd1234@gmail.com" required>
+                        </div>
+                        <div class="d1">
+                            <label class="q1">Mobile:- </label>
+                            <input type="text" name="Mobile" placeholder="98936 *****" required>
+                        </div>
+                        <div class="d1">
+                            <label class="q2">Feedback & query</label>
+                            <textarea name="Feedback" placeholder="Type something here......" required></textarea>
+                        </div>
+                        <button type="button" class="b1" onclick="subQuery()">Send</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
+    <script>
+        function subQuery() {
+            const formData = new FormData(document.getElementById("myQuery"));
+
+           
+            fetch('/send', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);  
+                    document.getElementById("myQuery").reset(); 
+                } else {
+                    alert("There was an error sending the feedback.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("There was an error sending the feedback.");
+            });
+        }
+    </script>
+</body>
+</html>

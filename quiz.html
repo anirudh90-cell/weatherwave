@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Quiz</title>
+    <link rel="stylesheet" href="/static/css/css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <marquee scrollamount="10" direction="left" id="marquee"><span>Note:-</span> You get only one chance to select the Answer</marquee>
+    <h1 id="quiz-h1"> Test Your Weather IQ!"</h1><br><br>
+        <h2 id="quiz-h2">Today Quiz</h2>
+    <br>
+    <div id="countdown"></div>
+    
+    <div class="quiz-container" style="display:none;">
+        <div class="question-container active" id="question1">
+            <div class="question">
+                <p>Q1. What is the most common type of precipitation?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, true, 'question2')">Rain</button>
+                <button onclick="checkAnswer(this, false, 'question2')">Snow</button>
+                <button onclick="checkAnswer(this, false, 'question2')">Hail</button>
+                <button onclick="checkAnswer(this, false, 'question2')">Sleet</button>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+        </div>
+
+        <div class="question-container" id="question2">
+            <div class="question">
+                <p>Q2. Which weather phenomenon is often referred to as a "twister"?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, true, 'question3')">Tornado</button>
+                <button onclick="checkAnswer(this, false, 'question3')">Hurricane</button>
+                <button onclick="checkAnswer(this, false, 'question3')">Blizzard</button>
+                <button onclick="checkAnswer(this, false, 'question3')">Cyclone</button>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+        </div>
+
+        <div class="question-container" id="question3">
+            <div class="question">
+                <p>Q3. What instrument is used to measure temperature?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, false, 'question4')">Barometer</button>
+                <button onclick="checkAnswer(this, false, 'question4')">Hygrometer</button>
+                <button onclick="checkAnswer(this, true, 'question4')">Thermometer</button>
+                <button onclick="checkAnswer(this, false, 'question4')">Anemometer</button>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+        </div>
+
+        <div class="question-container" id="question4">
+            <div class="question">
+                <p>Q4. What type of cloud is known for producing thunderstorms?
+        </p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, false, 'question5')">Stratus</button>
+                <button onclick="checkAnswer(this, false, 'question5')">Cirrus</button>
+                <button onclick="checkAnswer(this, false, 'question5')">Altocumulus</button>
+                <button onclick="checkAnswer(this, true, 'question5')">Cumulonimbus</button>
+            </div>
+            <div class="feedback" id="feedback4"></div>
+        </div>
+
+        <div class="question-container" id="question5">
+            <div class="question">
+                <p>Q5. What scale is used to measure the intensity of hurricanes?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, false, 'question6')">Richter Scale</button>
+                <button onclick="checkAnswer(this, true, 'question6')">Saffir-Simpson Scale</button>
+                <button onclick="checkAnswer(this, false, 'question6')">Fujita Scale</button>
+                <button onclick="checkAnswer(this, false, 'question6')">Beaufort Scale</button>
+            </div>
+            <div class="feedback" id="feedback5"></div>
+        </div>
+        <div class="question-container" id="question6">
+            <div class="question">
+                <p>Q6. What do you call a large-scale air mass that rotates around a strong center of low atmospheric pressure?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, false, 'question7')">Tornado</button>
+                <button onclick="checkAnswer(this, false, 'question7')">Hurricane</button>
+                <button onclick="checkAnswer(this, true, 'question7')">Cyclone</button>
+                <button onclick="checkAnswer(this, false, 'question7')">Typhoon</button>
+            </div>
+            <div class="feedback" id="feedback6"></div>
+        </div>
+
+        <div class="question-container" id="question7">
+            <div class="question">
+                <p>Q7. Which layer of Earth's atmosphere do most weather phenomena occur?</p>
+            </div>
+            <div class="options">
+                <button onclick="checkAnswer(this, true, 'complete')">Troposphere</button>
+                <button onclick="checkAnswer(this, false, 'complete')">Stratosphere</button>
+                <button onclick="checkAnswer(this, false, 'complete')">Mesosphere</button>
+                <button onclick="checkAnswer(this, false, 'complete')">Thermosphere</button>
+            </div>
+            <div class="feedback" id="feedback7"></div>
+        </div>
+
+
+    </div>
+
+    <div class="fireworks" id="fireworks">
+        <h2>Congratulations! You’ve completed the quiz!</h2>
+        <p>Thank you for playing!</p>
+        <p id="score"></p>
+    </div>
+<script>
+    let count = 0;
+
+   
+    let countdownValue = 3;
+    const countdownElement = document.getElementById("countdown");
+    const quizContainer = document.querySelector('.quiz-container');
+
+    function startCountdown() {
+        countdownElement.textContent = countdownValue;
+        let countdownInterval = setInterval(function() {
+            countdownValue--;
+            countdownElement.textContent = countdownValue;
+            if (countdownValue <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.style.display = "none"; 
+                quizContainer.style.display = "block"; 
+                showQuestion(1); 
+            }
+        }, 1000);
+    }
+
+    
+    window.onload = startCountdown;
+
+    function checkAnswer(button, isCorrect, nextQuestionId) {
+        const feedback = button.closest('.question-container').querySelector('.feedback');
+        const fireworks = document.getElementById('fireworks');
+        const nextQuestion = document.getElementById(nextQuestionId);
+
+        if (isCorrect) {
+            count++;
+            feedback.textContent = "Correct! Well done!";
+            feedback.className = "feedback correct";
+            document.body.classList.remove('sad-theme');
+            document.body.classList.add('good-theme');
+        } else {
+            feedback.textContent = "Oops! That's not correct.";
+            feedback.className = "feedback wrong";
+            document.body.classList.remove("good-theme")
+            document.body.classList.add('sad-theme');
+        }
+
+        feedback.style.display = 'block';
+
+        setTimeout(() => {
+            feedback.style.display = 'none';
+            document.body.classList.remove('good-theme')
+            document.body.classList.remove('sad-theme')
+            button.closest('.question-container').classList.remove('active');
+            
+            if (nextQuestionId === 'complete') {
+                fireworks.style.display = 'block';
+                if(count <= 4) {
+                    document.getElementById("score").innerHTML = "Oops! Your Total Score is " + count + " out of 7";
+                    document.body.classList.add("sad-theme");
+                } else {
+                    document.getElementById("score").innerHTML = "Congrats! Your Total Score is " + count + " out of 7";
+                    document.body.classList.add('good-theme');
+                }
+            } else {
+                nextQuestion.classList.add('active');
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>
