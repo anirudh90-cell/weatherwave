@@ -1,0 +1,297 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#con {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+#add {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#address {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#add p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+#num {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#num h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#num a {
+    font-size: 1.2em;
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#num a:hover {
+    color: #45a049;
+}
+
+#gma {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#gma h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#gma a {
+    font-size: 1.2em;
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#gma a:hover {
+    color: #45a049;
+}
+#query {
+    margin-top: 30px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.d1 {
+    margin-bottom: 20px;
+}
+
+.q1, .q2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="text"], input[type="email"] {
+    height: 40px;
+}
+
+textarea {
+    height: 100px;
+}
+
+
+.b1 {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 20px;
+}
+
+.b1:hover {
+    background-color: #45a049;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+form {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+#add, #num, #gma {
+    animation: slideIn 1s ease-out;
+}
+
+#query h1 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    #con h1 {
+        font-size: 2em;
+    }
+
+    #query form {
+        padding: 15px;
+    }
+
+    .d1 {
+        margin-bottom: 15px;
+    }
+
+    .b1 {
+        padding: 12px 18px;
+        font-size: 1.1em;
+    }
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.about-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0,0,255,0.30);
+}
+.about-h1{
+    font-weight: bolder;
+    margin-top: 50px;
+    font-size: 50px;
+    text-decoration: underline;
+    text-shadow: 10px 2px white;
+}
+.about-first{
+    padding: 20px;
+    font-size: 20px;
+}
+
+.about-h3{
+    text-decoration: none;
+}
+.about-h3-1{
+    margin-top: 20px;
+}
+fieldset{
+    padding: 20px;
+}
+.about-para{
+    margin-top: 15px;
+}
+
+.footer {
+    background-color: #303938;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-section {
+    margin: 10px;
+    flex: 0;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,151 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
+.header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 80%;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.content p {
+    margin: 15px 0;
+    line-height: 1.8;
+}
+
+.content ul {
+    margin: 10px 0 20px 20px;
+    list-style: disc;
+}
+
+.content ul li {
+    margin: 8px 0;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #333;
+    color: white;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.terms-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.terms-header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.terms-header h1 {
+    color: #0077b6;
+    margin: 0;
+}
+
+.terms-header p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.terms-section {
+    margin: 20px 0;
+}
+
+.terms-title {
+    color: #0077b6;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.terms-section p {
+    margin: 10px 0;
+}
+
+.terms-list {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.terms-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.terms-footer a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.terms-footer a:hover {
+    text-decoration: underline;
+}
